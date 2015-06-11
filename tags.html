@@ -37,7 +37,7 @@ Here we generate all the tags.
 </p>
 
 {% for tag in tags %}
-<h3 id="{{ tag | slugify }}">{{ tag }}</h3>
+<h3 id="{{ tag | slugify }}"><a href="#{{ tag | slugify }}">{{ tag }}</a></h3>
 <ul>
   {% for post in site.posts %}
   {% if post.tags contains tag %}
