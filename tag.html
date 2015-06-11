@@ -32,12 +32,12 @@ Here we generate all the tags.
 <div class="posts">
 <p>
 {% for tag in tags %}
-<a href="#{{ tag | slugify }}" class="codinfox-tag-mark"> {{ tag }} </a> &nbsp;&nbsp;
+<a href="#{{ tag | slugify }}" class="tag-mark"> {{ tag }} </a> &nbsp;&nbsp;
 {% endfor %}
 
 {% for tag in tags %}
 <h3 id="{{ tag | slugify }}">{{ tag }}</h3>
-<ul class="codinfox-category-list">
+<ul class="category-list">
   {% for post in site.posts %}
   {% if post.tags contains tag %}
   <li>
@@ -47,7 +47,7 @@ Here we generate all the tags.
         <small>{{ post.date | date_to_string }}</small>
       </a>
       {% for tag in post.tags %}
-      <a class="codinfox-tag-mark" href="/tag/#{{ tag | slugify }}">{{ tag }}</a>
+      <a class="tag-mark" href="/tag/#{{ tag | slugify }}">{{ tag }}</a>
       {% endfor %}
     </p>
   </li>
