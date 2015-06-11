@@ -15,7 +15,8 @@ baseurl:          /
 
 author:
   name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  url:            https://sindney.github.io
+  email:          346567691@qq.com
 
 paginate:         5
 
