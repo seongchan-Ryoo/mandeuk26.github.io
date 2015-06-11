@@ -30,11 +30,11 @@ Here we generate all the categories.
 {% endfor %}
 
 <div class="posts">
-<p>
+<h3>
 {% for ct in cats %}
 <a href="#{{ ct | slugify }}" class="category-mark"> {{ ct }} </a> &nbsp;&nbsp;
 {% endfor %}
-</p>
+</h3>
 
 {% for ct in cats %}
 <h3 id="{{ ct | slugify }}">{{ ct }}</h3>
