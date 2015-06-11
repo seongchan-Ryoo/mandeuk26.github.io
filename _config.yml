@@ -14,15 +14,11 @@ url:              http://sindney.github.io
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://sindney.github.io
+  name:           'Sindney'
+  url:            http://sindney.github.io
   email:          346567691@qq.com
 
 paginate:         5
 
 # Custom vars
 version:          2.1.0
-test:             Haha
-
-github:
-  repo:           https://github.com/poole/hyde
