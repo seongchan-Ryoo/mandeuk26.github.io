@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Project
+title: Projects
 ---
 
 <p class="message">
