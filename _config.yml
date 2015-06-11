@@ -7,10 +7,10 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            Hyde
+title:            Sindney
 tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+description:      'Just another web blog :D'
+url:              http://sindney.github.io
 baseurl:          /
 
 author:
@@ -21,6 +21,7 @@ paginate:         5
 
 # Custom vars
 version:          2.1.0
+test:             Haha
 
 github:
   repo:           https://github.com/poole/hyde
