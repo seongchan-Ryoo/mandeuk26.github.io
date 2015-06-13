@@ -8,7 +8,7 @@ relative_permalinks: true
 
 # Setup
 title:            Sindney
-tagline:          ''
+tagline:          'A Personal Blog'
 description:      'Just another web blog :D'
 url:              http://sindney.github.io
 baseurl:          /
