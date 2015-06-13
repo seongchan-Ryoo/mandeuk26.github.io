@@ -11,7 +11,7 @@ published: true
   {{ page.date | date_to_string }}
    tagged with 
   {% for tag in page.tags %}
-    <a href="/tags/#{{ tag | slugify }}">{{ tag }}</a> 
+  <a href="/tags/#{{ tag }}">{{ tag }}</a> 
   {% endfor %}
   </p>
   {{ content }}
