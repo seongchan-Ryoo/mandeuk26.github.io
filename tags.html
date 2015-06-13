@@ -30,13 +30,12 @@ Here we generate all the tags.
 
 <div class="posts">
 
+<p>All tags are listed below, hope these helps ^.^</p>
+
 <div class="message">
-  <p>All tags are listed below, hope these helps ^.^</p>
-  <p>
-    {% for tag in tags %}
-    <a href="#{{ tag | slugify }}">{{ tag }}</a>&nbsp;&nbsp;
-    {% endfor %}
-  </p>
+  {% for tag in tags %}
+  <a href="#{{ tag | slugify }}">{{ tag }}</a>&nbsp;&nbsp;
+  {% endfor %}
 </div>
 
 {% for tag in tags %}
