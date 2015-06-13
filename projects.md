@@ -4,7 +4,7 @@ title: Projects
 ---
 
 <p class="message">
-  Hey there! This page lists some of my projects and contributions. I'll glad if you find anything helpful ;)
+  Hey there! This page lists some of my projects and contributions.
 </p>
 
 ## Nest3D-CPP
