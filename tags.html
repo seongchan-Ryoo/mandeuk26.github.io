@@ -31,17 +31,16 @@ Here we generate all the tags.
 <div class="posts">
 
 <div class="message">
-  There's the full tag list. Hope these tag helps ^.^
+  <p>All tags are listed below, hope these helps ^.^</p>
+  <p>
+    {% for tag in tags %}
+    <a href="#{{ tag | slugify }}">{{ tag }}</a>&nbsp;&nbsp;
+    {% endfor %}
+  </p>
 </div>
 
-<p>
 {% for tag in tags %}
-<a href="#{{ tag | slugify }}">{{ tag }}</a>&nbsp;&nbsp;
-{% endfor %}
-</p>
-
-{% for tag in tags %}
-<p id="{{ tag | slugify }}">{{ tag }}</p>
+<p id="{{ tag | slugify }}"><b>{{ tag }}</b></p>
 <ul>
   {% for post in site.posts %}
   {% if post.tags contains tag %}
