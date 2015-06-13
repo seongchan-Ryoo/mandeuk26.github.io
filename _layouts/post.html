@@ -10,6 +10,7 @@ layout: default
 
 <div class="related">
   <h2>Related Posts</h2>
+  <h3>{{ post.category }}</h3>
   <ul class="related-posts">
     {% for post in site.related_posts limit:3 %}
       <li>
