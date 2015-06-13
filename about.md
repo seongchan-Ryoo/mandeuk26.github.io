@@ -3,16 +3,15 @@ layout: page
 title: About
 ---
 
-Hi, i'm sindney(xinhou). 
-A game developer from China :D
+<p class="message">
+  Hi, i'm sindney(xinhou). A game developer from China :D
+</p>
 
 ## Contact
 
 Have questions or suggestions? Feel free to contact me: 
 
-<p class="message">
-  Mail: 346567691[at]qq.com
-  QQ: 346567691
-</p>
+* Mail: 346567691[at]qq.com
+* QQ: 346567691
 
 Thanks for reading!
