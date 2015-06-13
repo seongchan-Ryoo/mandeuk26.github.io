@@ -6,9 +6,9 @@ published: true
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <p class="post-date">
-  Date: 
+  Posted In 
   {{ page.date | date_to_string }}
-   Tags:  
+   Tagged With 
   {% for tag in page.tags %}
     <a href="/tags/#{{ tag | slugify }}">{{ tag }}</a> 
   {% endfor %}
