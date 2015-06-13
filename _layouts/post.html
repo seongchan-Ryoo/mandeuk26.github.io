@@ -8,9 +8,9 @@ published: true
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <p class="post-date">
-  Posted in: 
+  Date: 
   {{ page.date | date_to_string }}
-   tagged with: 
+   Tags:  
   {% for tag in page.tags %}
     <a href="/tags/#{{ tag }}">{{ tag }}</a> 
   {% endfor %}
