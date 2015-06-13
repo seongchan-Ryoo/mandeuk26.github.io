@@ -8,7 +8,7 @@ relative_permalinks: true
 
 # Setup
 title:            Sindney
-tagline:          'A Jekyll theme'
+tagline:          ''
 description:      'Just another web blog :D'
 url:              http://sindney.github.io
 baseurl:          /
@@ -21,4 +21,3 @@ author:
 paginate:         5
 
 # Custom vars
-version:          2.1.0
