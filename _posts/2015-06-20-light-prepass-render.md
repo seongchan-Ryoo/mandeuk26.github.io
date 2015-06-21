@@ -8,8 +8,6 @@ tags: [Note, Graphics]
 
 常用的就是Phong与Blinn-Phong了，先复习一下其原理：
 
-### Phong模型
-
 ![phong](/public/content/2015-06-20/phong.png)
 
 <table>
@@ -43,10 +41,12 @@ tags: [Note, Graphics]
 	</tbody>
 </table>
 
-- N与L的点积，控制漫反射分量
-- R与V的点积的n次方，控制镜面反射分量，n代表shininess
+### Phong模型
 
 ![phong model](/public/content/2015-06-20/phong_model.png)
+
+- N与L的点积，控制漫反射分量
+- R与V的点积的n次方，控制镜面反射分量，n代表shininess
 
 <table>
  	<thead>
@@ -92,3 +92,6 @@ L对N的镜像R的计算：
 ### Blinn-Phong模型
 
 ![blinn phong model](/public/content/2015-06-20/blinn_phong_model.png)
+
+- N与L的点积，控制漫反射分量
+- N与H的点积的n次方，控制镜面反射分量，n代表shininess
