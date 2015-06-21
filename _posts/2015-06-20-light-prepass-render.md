@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Light Pre-pass Render
-tags: [Note, Graphics, Render]
+tags: [Note, Graphics]
 ---
 
 ### 光照方程
@@ -12,20 +12,25 @@ tags: [Note, Graphics, Render]
 
 ![phong](/public/content/2015-06-20/phong.png)
 
-对于Phong模型：
+再Phong模型中：
 
 - N与L的点积，控制漫反射分量
 - R与V的点积的n次方，控制镜面反射分量（n代表shininess）
 
 ![phong model](/public/content/2015-06-20/phong_model.png)
 
-公式中
+| Name	 | Details		 | Name		 | Details		 |
+| ------ | ------------- | --------- | ------------- |
+| K		 | Color 		 | Att		 | Attenuation 	 |
+| A		 | Ambient 		 | s		 | Specular 	 |
+| D		 | Diffuse		 | n		 | shininess	 |
+| IT	 | Intensity	 | l		 | Light 		 |
 
 L对N的镜像R的计算：
 
 ![reflect](/public/content/2015-06-20/reflect.png)
 
-在Blinn-Phong模型中，通过替换 R*V 为 H=(L+V)/|L+V| 来加快计算过程。
+在Blinn-Phong模型中，通过替换 R*V 为 N*H，其中H=(L+V)/|L+V| 来加快计算过程。
 
 ### 实现
 
