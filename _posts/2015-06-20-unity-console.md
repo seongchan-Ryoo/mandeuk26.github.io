@@ -51,4 +51,4 @@ object returnValue = tp.InvokeMember(str_func, BindingFlags.Static | BindingFlag
 
 ## 附录
 
-下载该 [Unity package](/public/content/2015-06-20/sindney.console.unitypackage)
+下载 [Unity package](/public/content/2015-06-20/sindney.console.unitypackage)
