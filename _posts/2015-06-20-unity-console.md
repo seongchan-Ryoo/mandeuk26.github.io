@@ -11,7 +11,7 @@ tags: [Unity, CSharp]
 程序就会调用这个函数，并且将函数的返回值打印出来。
 该系统有简单的错误判断机制，若分析过程中出现错误的语法，会抛出异常。
 
-![运行截图](public/content/2015-06-20/console.png "console")
+![screenshot](/public/content/2015-06-20/console.png)
 
 ### 实现
 
@@ -45,4 +45,4 @@ object returnValue = tp.InvokeMember(str_func, BindingFlags.Static | BindingFlag
 
 ### 附录
 
-下载该 [Unity package](public/content/2015-06-20/sindney.console.unitypackage)
+下载该 [Unity package](/public/content/2015-06-20/sindney.console.unitypackage)
