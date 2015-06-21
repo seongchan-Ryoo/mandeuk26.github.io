@@ -17,31 +17,31 @@ tags: [Unity, CSharp]
 
 通过Lexer.Analysis得到词语列表：
 
-{% highlight cs %}
+```cs
 List<Token> tokens = Lexer.Analysis(cmd);
-{% endhighlight %}
+```
 
 接下来，将词语列表传入语法分析器中，将得到三个输出数据：
-* 完整的类型名称
-* 函数名称
-* 参数列表，支持 Int、Float、String、Bool 这四种参数类型
+- 完整的类型名称
+- 函数名称
+- 参数列表，支持 Int、Float、String、Bool 这四种参数类型
 
-{% highlight cs %}
+```cs
 Parse(List<Token> tokens, out string str_namespace, out string str_func, out List<object> args)
 // I.Am.Namespace.AnyType
 // AnyFunction
 // object[] {1, "i'm a string", 18.8, false}
-{% endhighlight %}
+```
 
 得到以上数据，我们就可以通过C#的反射机制，来进行运行时静态函数的调用：
 
-{% highlight cs %}
+```cs
 Assembly asb = Assembly.GetExecutingAssembly();
 // 得到类型
 Type tp = asb.GetType(str_namespace, true);
 // 调用该类型的函数
 object returnValue = tp.InvokeMember(str_func, BindingFlags.Static | BindingFlags.Public | BindingFlags.InvokeMethod, null, null, arg_list.ToArray());
-{% endhighlight %}
+```
 
 ### 附录
 

@@ -14,8 +14,8 @@ tags: [Note, Graphics, Render]
 
 对于Phong模型：
 
-* N与L的点积，控制漫反射分量
-* R与V的点积的n次方，控制镜面反射分量（n代表shininess）
+- N与L的点积，控制漫反射分量
+- R与V的点积的n次方，控制镜面反射分量（n代表shininess）
 
 ![phong model](/public/content/2015-06-20/phong_model.png)
 
