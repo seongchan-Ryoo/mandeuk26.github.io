@@ -19,12 +19,42 @@ tags: [Note, Graphics]
 
 ![phong model](/public/content/2015-06-20/phong_model.png)
 
-| Name	 | Details		 | Name		 | Details		 |
-| ------ | ------------- | --------- | ------------- |
-| K		 | Color 		 | Att		 | Attenuation 	 |
-| A		 | Ambient 		 | s		 | Specular 	 |
-| D		 | Diffuse		 | n		 | shininess	 |
-| IT	 | Intensity	 | l		 | Light 		 |
+<table>
+ 	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Detail</th>
+			<th>Name</th>
+			<th>Detail</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>K</td>
+			<td>Color</td>
+			<td>Att</td>
+			<td>Attenuation</td>
+		</tr>
+		<tr>
+			<td>a</td>
+			<td>Ambient</td>
+			<td>s</td>
+			<td>Specular</td>
+		</tr>
+		<tr>
+			<td>d</td>
+			<td>diffuse</td>
+			<td>n</td>
+			<td>shininess</td>
+		</tr>
+		<tr>
+			<td>IT</td>
+			<td>Intensity</td>
+			<td>l</td>
+			<td>Light</td>
+		</tr>
+	</tbody>
+</table>
 
 L对N的镜像R的计算：
 
