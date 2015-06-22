@@ -4,9 +4,16 @@ title: Light Pre-pass Render
 tags: [Note, Graphics]
 ---
 
+<div class="message">
+	Light Pre-pass 渲染器 <sup>[0](#ref)</sup> 是延迟渲染的一种修改版，为了加速渲染初期G-Buffer的计算，
+	在渲染时，首先渲染场景法线与深度到MRT中（但丧失了仅渲染深度的速度优势）
+	接着与光照计算相关的一些参数，用于后续渲染中对光照方程的重建。此方法的优点有：
+	大大减少了G-Buffer的大小，也可以支持MSAA，支持没有MRT的设备等等。
+</div>
+
 ## 光照方程
 
-常用的就是Phong与Blinn-Phong了，先复习一下其原理：
+常用的就是Phong <sup>[1](#ref)</sup> 与Blinn-Phong <sup>[2](#ref)</sup> 了，先复习一下其原理：
 
 ![phong](/public/content/2015-06-20/phong.png)
 
@@ -95,3 +102,113 @@ L对N的镜像R的计算：
 
 - N与L的点积，控制漫反射分量
 - N与H的点积的n次方，控制镜面反射分量，n代表shininess
+
+## 设计
+
+属于灯光的参数：
+
+```
+light
+{
+	color, 
+	attenuation, 
+
+	shininess/power
+}
+```
+
+属于材质的参数：
+
+```
+material 
+{
+	specular_color, 
+	specular_intensity, 
+
+	diffuse_color, 
+	diffuse_intensity,
+
+	shininess/power
+}
+```
+
+我们需要重建的光照方程，使用Blinn-Phong光照模型：
+
+```
+color = ambient + shadow * attenuation * (
+	mat_diff * diff_intensity * light_color * N*L + 
+	mat_spec * spec_intensity * ((N*H)^n)^m
+)
+```
+
+<table>
+ 	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Detail</th>
+			<th>Name</th>
+			<th>Detail</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>attenuation</td>
+			<td>控制阴影的衰减</td>
+			<td>intensity</td>
+			<td>控制光照的强度</td>
+		</tr>
+		<tr>
+			<td>n</td>
+			<td>灯光的亮度</td>
+			<td>m</td>
+			<td>材质的亮度</td>
+		</tr>
+	</tbody>
+</table>
+
+光照方程中，需要灯光相关参数部分：
+
+<table>
+	<tbody>
+		<tr>
+			<td>N * L</td>
+			<td>light.color</td>
+			<td>(N * H) ^ n</td>
+			<td>attenuation</td>
+		</tr>
+	</tbody>
+</table>
+
+我们将其存储到Light Buffer中，用于后续渲染中对光照方程的重建：
+
+```
+light_buffer.rgb 	= light_color.rgb * N * L * attenuation
+light_buffer.a 		= (N * H)^n * N * L * attenuation
+N * L * attenuation
+```
+
+若需要重建高光反射分量，则共需要两个Render Target。
+在这里，我们可以转换 N * L * attenuation 到 luminance <sup>[3](#ref)</sup>，这两个值非常接近：
+
+```
+luminance 	= N * L * attenuation 
+			= (0.2126 * R + 0.7152 * G + 0.0722 * B)
+```
+
+这样我们就可以重建高光反射分量，并且仅需要一个Render Target：
+
+```
+(N * H)^n 	= light_buffer.a / luminance
+			= ((N * H)^n * N * L * attenuation) / (N * L * attenuation);
+```
+
+<span id="ref"></span>
+## 附录
+
+[0] Wolfgang Engel. [Light Pre-Pass Renderer](http://diaryofagraphicsprogrammer.blogspot.com/2008/03/light-pre-pass-renderer.html). Diary of a Graphics Programmer.
+
+[1] Wikipedia. [Phong Reflection Model](https://en.wikipedia.org/wiki/Phong_reflection_model).
+
+[2] Wikipedia. [Blinn Phong Shading Model](https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_shading_model).
+
+[3] Wolfgang Engel. [Light Pre-Pass More Blood](http://diaryofagraphicsprogrammer.blogspot.com/2008/09/light-pre-pass-more-blood.html). Diary of a Graphics Programmer.
