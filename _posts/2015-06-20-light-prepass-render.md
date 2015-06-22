@@ -16,8 +16,8 @@ Light Pre-pass 渲染器 <sup>[[0]](#ref)</sup> 是延迟渲染的一种修改�
 
 此方法的优点有：
 
-- 大大减少了G-Buffer的大小
-- 也可以支持MSAA
+- 更小的G-Buffer
+- 支持MSAA
 - 支持没有MRT的设备
 
 ## 光照方程
@@ -145,8 +145,8 @@ material
 
 ```
 color = ambient + shadow * attenuation * (
-	mat_diff * diff_intensity * light_color * N*L + 
-	mat_spec * spec_intensity * ((N*H)^n)^m
+	mat_diff * diff_intensity * light_color * N * L + 
+	mat_spec * spec_intensity * ((N * H)^n)^m
 )
 ```
 
