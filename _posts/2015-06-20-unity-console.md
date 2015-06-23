@@ -8,7 +8,7 @@ tags: [Unity, CSharp]
 
 输入一段类似下面的命令：
 
-```c
+```csharp
 Namespace.Class.Method(10, 12.5, true, "hello there")
 ```
 
@@ -23,7 +23,7 @@ Namespace.Class.Method(10, 12.5, true, "hello there")
 
 通过Lexer.Analysis得到词语列表：
 
-```c
+```csharp
 List<Token> tokens = Lexer.Analysis(cmd);
 ```
 
@@ -32,7 +32,7 @@ List<Token> tokens = Lexer.Analysis(cmd);
 - 函数名称
 - 参数列表，支持 Int、Float、String、Bool 这四种参数类型
 
-```c
+```csharp
 Parse(List<Token> tokens, out string str_namespace, out string str_func, out List<object> args)
 // I.Am.Namespace.AnyType
 // AnyFunction
@@ -41,7 +41,7 @@ Parse(List<Token> tokens, out string str_namespace, out string str_func, out Lis
 
 得到以上数据，我们就可以通过C#的反射机制，来进行运行时静态函数的调用：
 
-```c
+```csharp
 Assembly asb = Assembly.GetExecutingAssembly();
 // 得到类型
 Type tp = asb.GetType(str_namespace, true);
