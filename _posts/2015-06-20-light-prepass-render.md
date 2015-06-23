@@ -120,7 +120,6 @@ L对N的镜像R的计算：
 light
 {
 	color, 
-	attenuation, 
 
 	shininess/power
 }
@@ -162,7 +161,7 @@ color = ambient + shadow * attenuation * (
 	<tbody>
 		<tr>
 			<td>attenuation</td>
-			<td>控制阴影的衰减</td>
+			<td>控制灯光的衰减</td>
 			<td>intensity</td>
 			<td>控制光照的强度</td>
 		</tr>
