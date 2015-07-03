@@ -9,13 +9,15 @@ tags: [Unity, CSharp]
 输入一段类似下面的命令：
 
 ```csharp
-// Supports int, float ,string, bool
 Namespace.Class.Method(10, 12.5, true, "hello there")
 ```
 
-按下回车键两次，
+按下回车键两次。
+
 若运行时存在这个类型，并且存在这个需要上述参数的函数。
+
 程序就会调用这个函数，并且将函数的返回值打印出来。
+
 该系统有简单的错误判断机制，若分析过程中出现错误的语法，会抛出异常。
 
 ![screenshot](/public/content/2015-06-20/console.png)
@@ -25,11 +27,11 @@ Namespace.Class.Method(10, 12.5, true, "hello there")
 通过Lexer.Analysis得到词语列表：
 
 ```csharp
-// Will throw exception if anything goes wrong.
 List<Token> tokens = Lexer.Analysis(cmd);
 ```
 
 接下来，将词语列表传入语法分析器中，将得到三个输出数据：
+
 - 完整的类型名称
 - 函数名称
 - 参数列表，支持 Int、Float、String、Bool 这四种参数类型
