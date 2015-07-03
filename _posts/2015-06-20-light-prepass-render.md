@@ -129,8 +129,8 @@ luminance = N * L * attenuation
 	= ((N * H)^n * N * L * attenuation) / (N * L * attenuation);
 {% endhighlight %}
 
-<span id="ref"></span>
-## 附录
+
+## 附录<span id="ref"></span>
 
 [0] Wolfgang Engel. [Light Pre-Pass Renderer](http://diaryofagraphicsprogrammer.blogspot.com/2008/03/light-pre-pass-renderer.html). Diary of a Graphics Programmer.
 
