@@ -86,14 +86,18 @@ html {
 /* Sidebar nav */
 .sidebar-nav {
   margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,.1);
 }
 .sidebar-nav-item {
   display: block;
   line-height: 1.75;
+  border-top: 1px solid rgba(255,255,255,.1);
 }
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
-  text-decoration: underline;
+  text-decoration: none;
+  background-color: rgba(255,255,255,.1);
+  border-color: transparent;
 }
 .sidebar-nav-item.active {
   font-weight: bold;
