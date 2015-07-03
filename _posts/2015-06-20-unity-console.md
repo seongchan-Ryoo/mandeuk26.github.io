@@ -9,6 +9,7 @@ tags: [Unity, CSharp]
 输入一段类似下面的命令：
 
 {% highlight csharp linenos %}
+// Supports int, float ,string, bool
 Namespace.Class.Method(10, 12.5, true, "hello there")
 {% endhighlight %}
 
@@ -24,6 +25,7 @@ Namespace.Class.Method(10, 12.5, true, "hello there")
 通过Lexer.Analysis得到词语列表：
 
 {% highlight csharp linenos %}
+// Will throw exception if anything goes wrong.
 List<Token> tokens = Lexer.Analysis(cmd);
 {% endhighlight %}
 
