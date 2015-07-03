@@ -101,6 +101,11 @@ a.sidebar-nav-item:focus {
   border-color: transparent;
 }
 
+.sidebar-nav-item.active
+{
+  background-color: rgba(255,255,255,.5);
+}
+
 /* Sticky sidebar
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the
