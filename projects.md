@@ -33,5 +33,5 @@ Features:
 
 This engine is based on flash's [Stage3D](http://www.adobe.com/cn/devnet/flashplayer/stage3d.html) technology.
 
-Find out more on [GitHub](https://github.com/sindney/nest3d-cpp).
+Find out more on [GitHub](https://github.com/sindney/nest3d).
 
