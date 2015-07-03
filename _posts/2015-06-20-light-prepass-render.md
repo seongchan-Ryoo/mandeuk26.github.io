@@ -26,11 +26,11 @@ Light Pre-pass 渲染器 <sup>[[0]](#ref)</sup> 是延迟渲染的一种修改�
 
 ![phong](/public/content/2015-06-20/phong.png)
 
-| Name  | Detail | Name | Detail |
-| --- | --- | --- | --- |
-| N | 平面法线 | L | 光的方向 |
-| V | 视角方向 | R | L对N镜像 |
-| H | L + V |  |  |
+| Name  | Detail   | Name | Detail   |
+| ----- | -------- | ---- | -------- |
+| N     | 平面法线 | L    | 光的方向 |
+| V     | 视角方向 | R    | L对N镜像 |
+| H     | L + V    |      |          |
 
 ### Phong模型
 
@@ -39,12 +39,12 @@ Light Pre-pass 渲染器 <sup>[[0]](#ref)</sup> 是延迟渲染的一种修改�
 - N与L的点积，控制漫反射分量
 - R与V的点积的n次方，控制镜面反射分量，n代表shininess
 
-| Name  | Detail | Name | Detail |
-| --- | --- | --- | --- |
-| K | Color | Att | Attenuation |
-| a | Ambient | s | Specular | 
-| d | diffuse | n | shininess | 
-| IT | Intensity | l | Light | 
+| Name | Detail    | Name | Detail      |
+| ---- | --------- | ---  | ----------- |
+| K    | Color     | Att  | Attenuation |
+| a    | Ambient   | s    | Specular    | 
+| d    | diffuse   | n    | shininess   | 
+| IT   | Intensity | l    | Light       | 
 
 L对N的镜像R的计算：
 
@@ -94,10 +94,10 @@ color = ambient + shadow * attenuation * (
 )
 {% endhighlight %}
 
-| Name  | Detail | Name | Detail |
-| --- | --- | --- | --- |
+| Name        | Detail          | Name     | Detail         |
+| ----------- | --------------- | -------- | -------------- |
 | attenuation | 控制灯光的衰减 | intensity | 控制光照的强度 | 
-| n | 灯光的亮度 | m | 材质的亮度 | 
+| n           | 灯光的亮度     | m         | 材质的亮度     | 
 
 光照方程中，与灯光相关参数：
 
