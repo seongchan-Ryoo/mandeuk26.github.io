@@ -38,7 +38,7 @@ List<Token> tokens = Lexer.Analysis(cmd);
 Parse(List<Token> tokens, out string str_namespace, out string str_func, out List<object> args)
 // I.Am.Namespace.AnyType
 // AnyFunction
-// object[] {1, "i'm a string", 18.8, false}
+// 1, "i'm a string", 18.8, false
 {% endhighlight %}
 
 得到以上数据，我们就可以通过C#的反射机制，来进行运行时静态函数的调用：
