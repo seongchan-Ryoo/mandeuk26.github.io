@@ -85,14 +85,15 @@ html {
 
 /* Sidebar nav */
 .sidebar-nav {
+  margin-bottom: 1rem;
   border-bottom: 1px solid rgba(255,255,255,.1);
 }
 .sidebar-nav-item {
   display: block;
-  padding: .5rem 1rem;
+  padding: .5rem .5rem;
   border-top: 1px solid rgba(255,255,255,.1);
 }
-.sidebar-nav-item.active
+.sidebar-nav-item.active,
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
   text-decoration: none;
