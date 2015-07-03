@@ -26,36 +26,11 @@ Light Pre-pass 渲染器 <sup>[[0]](#ref)</sup> 是延迟渲染的一种修改�
 
 ![phong](/public/content/2015-06-20/phong.png)
 
-<table>
- 	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Detail</th>
-			<th>Name</th>
-			<th>Detail</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>N</td>
-			<td>平面法线</td>
-			<td>L</td>
-			<td>光的方向</td>
-		</tr>
-		<tr>
-			<td>V</td>
-			<td>视角方向</td>
-			<td>R</td>
-			<td>L对N镜像</td>
-		</tr>
-		<tr>
-			<td>H</td>
-			<td>L + V</td>
-			<td></td>
-			<td></td>
-		</tr>
-	</tbody>
-</table>
+| Name  | Detail | Name | Detail |
+| --- | --- | --- | --- |
+| N | 平面法线 | L | 光的方向 |
+| V | 视角方向 | R | L对N镜像 |
+| H | L + V |  |  |
 
 ### Phong模型
 
@@ -64,42 +39,12 @@ Light Pre-pass 渲染器 <sup>[[0]](#ref)</sup> 是延迟渲染的一种修改�
 - N与L的点积，控制漫反射分量
 - R与V的点积的n次方，控制镜面反射分量，n代表shininess
 
-<table>
- 	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Detail</th>
-			<th>Name</th>
-			<th>Detail</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>K</td>
-			<td>Color</td>
-			<td>Att</td>
-			<td>Attenuation</td>
-		</tr>
-		<tr>
-			<td>a</td>
-			<td>Ambient</td>
-			<td>s</td>
-			<td>Specular</td>
-		</tr>
-		<tr>
-			<td>d</td>
-			<td>diffuse</td>
-			<td>n</td>
-			<td>shininess</td>
-		</tr>
-		<tr>
-			<td>IT</td>
-			<td>Intensity</td>
-			<td>l</td>
-			<td>Light</td>
-		</tr>
-	</tbody>
-</table>
+| Name  | Detail | Name | Detail |
+| --- | --- | --- | --- |
+| K | Color | Att | Attenuation |
+| a | Ambient | s | Specular | 
+| d | diffuse | n | shininess | 
+| IT | Intensity | l | Light | 
 
 L对N的镜像R的计算：
 
@@ -116,18 +61,18 @@ L对N的镜像R的计算：
 
 属于灯光的参数：
 
-```
+{% highlight linenos %}
 light
 {
 	color, 
 
 	shininess/power
 }
-```
+{% endhighlight %}
 
 属于材质的参数：
 
-```
+{% highlight linenos %}
 material 
 {
 	specular_color, 
@@ -138,77 +83,51 @@ material
 
 	shininess/power
 }
-```
+{% endhighlight %}
 
 我们需要重建的光照方程，使用Blinn-Phong光照模型：
 
-```
+{% highlight linenos %}
 color = ambient + shadow * attenuation * (
 	mat_diff * diff_intensity * light_color * N * L + 
 	mat_spec * spec_intensity * ((N * H)^n)^m
 )
-```
+{% endhighlight %}
 
-<table>
- 	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Detail</th>
-			<th>Name</th>
-			<th>Detail</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>attenuation</td>
-			<td>控制灯光的衰减</td>
-			<td>intensity</td>
-			<td>控制光照的强度</td>
-		</tr>
-		<tr>
-			<td>n</td>
-			<td>灯光的亮度</td>
-			<td>m</td>
-			<td>材质的亮度</td>
-		</tr>
-	</tbody>
-</table>
+| Name  | Detail | Name | Detail |
+| --- | --- | --- | --- |
+| attenuation | 控制灯光的衰减 | intensity | 控制光照的强度 | 
+| n | 灯光的亮度 | m | 材质的亮度 | 
 
 光照方程中，与灯光相关参数：
 
-<table>
-	<tbody>
-		<tr>
-			<td>N * L</td>
-			<td>light.color</td>
-			<td>(N * H) ^ n</td>
-			<td>attenuation</td>
-		</tr>
-	</tbody>
-</table>
+- N * L 
+- light.color
+- (N * H) ^ n 
+- attenuation
 
 我们将其存储到Light Buffer中，用于后续渲染中对光照方程的重建：
 
-```
+{% highlight linenos %}
 light_buffer.rgb 	= light_color.rgb * N * L * attenuation
 light_buffer.a 		= (N * H)^n * N * L * attenuation
 N * L * attenuation
-```
+{% endhighlight %}
 
 若需要重建高光反射分量，则共需要两个Render Target。
 在这里，我们可以转换 N * L * attenuation 到 luminance <sup>[[3]](#ref)</sup>，这两个值非常接近：
 
-```
+{% highlight linenos %}
 luminance 	= N * L * attenuation 
 			= (0.2126 * R + 0.7152 * G + 0.0722 * B)
-```
+{% endhighlight %}
 
 这样我们就可以重建高光反射分量，并且仅需要一个Render Target：
 
-```
+{% highlight linenos %}
 (N * H)^n 	= light_buffer.a / luminance
 			= ((N * H)^n * N * L * attenuation) / (N * L * attenuation);
-```
+{% endhighlight %}
 
 <span id="ref"></span>
 ## 附录

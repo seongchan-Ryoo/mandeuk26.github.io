@@ -8,7 +8,7 @@ tags: [Notes, CPP]
 
 完美转发与分段构造用例
 
-```cpp
+{% highlight cpp linenos %}
 #include <map>
 #include <functional>
 #include <typeinfo>
@@ -46,7 +46,7 @@ int main()
 
 	return 0;
 }
-```
+{% endhighlight %}
 
 [运行](http://coliru.stacked-crooked.com/a/751a932dd2b5cb1a)
 
