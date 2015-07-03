@@ -115,6 +115,7 @@ N * L * attenuation
 {% endhighlight %}
 
 若需要重建高光反射分量，则共需要两个Render Target。
+
 在这里，我们可以转换 N * L * attenuation 到 luminance <sup>[[3]](#ref)</sup>，这两个值非常接近：
 
 {% highlight c linenos %}
