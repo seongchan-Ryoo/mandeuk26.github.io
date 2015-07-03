@@ -65,7 +65,6 @@ L对N的镜像R的计算：
 light
 {
 	color, 
-
 	shininess/power
 }
 {% endhighlight %}
@@ -94,10 +93,10 @@ color = ambient + shadow * attenuation * (
 )
 {% endhighlight %}
 
-| Name        | Detail          | Name     | Detail         |
-| ----------- | --------------- | -------- | -------------- |
-| attenuation | 控制灯光的衰减 | intensity | 控制光照的强度 | 
-| n           | 灯光的亮度     | m         | 材质的亮度     | 
+| Name        | Detail          | Name      | Detail         |
+| ----------- | --------------- | --------- | -------------- |
+| attenuation | 控制灯光的衰减  | intensity | 控制光照的强度 | 
+| n           | 灯光的亮度      | m         | 材质的亮度     | 
 
 光照方程中，与灯光相关参数：
 
@@ -109,8 +108,8 @@ color = ambient + shadow * attenuation * (
 我们将其存储到Light Buffer中，用于后续渲染中对光照方程的重建：
 
 {% highlight c linenos %}
-light_buffer.rgb 	= light_color.rgb * N * L * attenuation
-light_buffer.a 		= (N * H)^n * N * L * attenuation
+light_buffer.rgb = light_color.rgb * N * L * attenuation
+light_buffer.a = (N * H)^n * N * L * attenuation
 N * L * attenuation
 {% endhighlight %}
 
@@ -119,15 +118,15 @@ N * L * attenuation
 在这里，我们可以转换 N * L * attenuation 到 luminance <sup>[[3]](#ref)</sup>，这两个值非常接近：
 
 {% highlight c linenos %}
-luminance 	= N * L * attenuation 
-			= (0.2126 * R + 0.7152 * G + 0.0722 * B)
+luminance = N * L * attenuation 
+	= (0.2126 * R + 0.7152 * G + 0.0722 * B)
 {% endhighlight %}
 
 这样我们就可以重建高光反射分量，并且仅需要一个Render Target：
 
 {% highlight c linenos %}
-(N * H)^n 	= light_buffer.a / luminance
-			= ((N * H)^n * N * L * attenuation) / (N * L * attenuation);
+(N * H)^n = light_buffer.a / luminance
+	= ((N * H)^n * N * L * attenuation) / (N * L * attenuation);
 {% endhighlight %}
 
 <span id="ref"></span>
