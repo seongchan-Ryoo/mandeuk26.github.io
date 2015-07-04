@@ -6,12 +6,12 @@ relative_permalinks: true
 title:            Sindney
 tagline:          'A Personal Blog'
 description:      'Just another web blog :D'
-url:              http://sindney.github.io
+url:              http://blog.sindney.com
 baseurl:          /
 
 author:
   name:           'Sindney'
-  url:            http://sindney.github.io
+  url:            http://blog.sindney.com
   email:          346567691@qq.com
 
 paginate:         5
