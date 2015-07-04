@@ -102,6 +102,12 @@ a.sidebar-nav-item:focus {
   border-color: transparent;
 }
 
+/* Sidebar social */
+.sidebar-social {
+  margin-bottom: 1rem;
+}
+}
+
 /* Sticky sidebar
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the
