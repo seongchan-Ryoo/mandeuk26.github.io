@@ -4,14 +4,13 @@ relative_permalinks: true
 
 # Setup
 title:            Sindney
-tagline:          'A Personal Blog'
-description:      'Just another web blog :D'
+tagline:          'Just another blog'
+description:      'Though i fly through the valley of death, i shall fear no evil, for i am at 80000 feet and climbing.'
 url:              http://blog.sindney.com
 baseurl:          /
 
 author:
-  name:           'Sindney'
-  url:            http://blog.sindney.com
+  name:           Sindney
   email:          346567691@qq.com
   github:         sindney
   steam:          sindney
