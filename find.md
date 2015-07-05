@@ -28,14 +28,12 @@ Here we generate all the tags.
   {% endif %}
 {% endfor %}
 
-<div class="posts">
-
 ## Find By Keywords
 
 <!-- Html Elements for Search -->
 <div id="search-container">
   <input type="text" id="search-input" placeholder="Type here ...">
-  <div id="results-container"></div>
+  <ul id="results-container"></ul>
 </div>
 
 <!-- Script pointing to jekyll-search.js -->
@@ -46,8 +44,6 @@ Here we generate all the tags.
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('results-container'),
     json: '{{ site.baseurl }}search.json',
-    searchResultTemplate: '<div><a href="{url}">{title}</a></div>',
-    noResultsText: 'No results found',
     limit: 10,
     fuzzy: true,
   })
@@ -57,7 +53,7 @@ Here we generate all the tags.
 
 ## Find By Tags
 
-<p>All tags are listed below, hope these helps ^.^</p>
+All tags are listed below, hope these helps ^.^
 
 <div class="message">
   {% for tag in tags %}
@@ -79,5 +75,3 @@ Here we generate all the tags.
   {% endfor %}
 </ul>
 {% endfor %}
-
-</div>
