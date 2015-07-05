@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Tags
+title: Find
 ---
 {% comment%}
 Here we generate all the tags.
@@ -29,6 +29,33 @@ Here we generate all the tags.
 {% endfor %}
 
 <div class="posts">
+
+## Find By Keywords
+
+<!-- Html Elements for Search -->
+<div id="search-container">
+  <input type="text" id="search-input" placeholder="Type here ...">
+  <div id="results-container"></div>
+</div>
+
+<!-- Script pointing to jekyll-search.js -->
+<script src="{{ site.baseurl }}public/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '{{ site.baseurl }}search.json',
+    searchResultTemplate: '<div><a href="{url}">{title}</a></div>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: true,
+  })
+</script>
+
+-----
+
+## Find By Tags
 
 <p>All tags are listed below, hope these helps ^.^</p>
 
