@@ -251,6 +251,17 @@ tbody tr:nth-child(odd) th {
   background-color: #f9f9f9;
 }
 
+/* Input */
+input {
+  max-width: 50rem;
+  padding: 1rem;
+  border:0;
+  font-size: 1rem;
+  box-shadow: 0rem .5rem 0rem #333333;
+  -webkit-border-radius: .5rem;
+  -moz-border-radius: .5rem;
+  border-radius: .5rem;
+}
 
 /*
  * Custom type
