@@ -265,7 +265,7 @@ input {
 
 input:focus {
   color: #000000;
-  background-color: rgba(0, 0, 0, .05);
+  background-color: #eeeeee;
 }
 
 /*
