@@ -6,7 +6,8 @@ title: Search
 <!-- Html Elements for Search -->
 <div id="search-container">
 	<input type="text" id="search-input" placeholder="Type here ...">
-	<ul id="results-container"></ul>
+	--------------------------
+	<div id="results-container"></div>
 </div>
 
 <!-- Script pointing to jekyll-search.js -->
@@ -17,6 +18,7 @@ title: Search
 		searchInput: document.getElementById('search-input'),
 		resultsContainer: document.getElementById('results-container'),
 		json: '{{ site.baseurl }}search.json',
+		searchResultTemplate: '<div><a href="{url}">{title}</a></div>',
 		noResultsText: 'No results found',
 		limit: 10,
 		fuzzy: true,
