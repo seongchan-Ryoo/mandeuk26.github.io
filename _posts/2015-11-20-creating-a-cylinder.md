@@ -7,9 +7,8 @@ tags: [CPP, Graphics]
 ## 简介
 
 使用代码生成圆柱体，可用来表示Spot Light的凸包围体
-
 当圆柱体的某一端闭合时，会产生重复顶点。
-可参考<sup>[[0]](#ref)</sup>Assimp的做法，来剔除潜在重复顶点。
+可参考Assimp<sup>[[0]](#ref)</sup>的做法，来剔除潜在重复顶点。
 
 ## 实现
 
@@ -108,4 +107,5 @@ void CreateCylinder(const std::string &name, float topR, float bottomR, float he
 ## 附录<span id="ref"></span>
 
 [0] Assimp. [JoinVerticesProcess.cpp](https://github.com/assimp/assimp/blob/master/code/JoinVerticesProcess.cpp).
+
 [1] Andreaskahler. [Creating a icosphere](http://blog.andreaskahler.com/2009/06/creating-icosphere-mesh-in-code.html).
