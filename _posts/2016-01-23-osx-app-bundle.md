@@ -12,7 +12,7 @@ tags: [CPP, Notes]
 
 ## 代码
 
-{% highlight cpp %}
+```cpp
 #if defined(__APPLE__)
 #include <CoreFoundation/CoreFoundation.h>
 #endif
@@ -34,7 +34,7 @@ std::string ResourcePath()
     return std::string();
 #endif
 }
-{% endhighlight %}
+```
 
 ## 附录<span id="ref"></span>
 
