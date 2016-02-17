@@ -26,9 +26,9 @@ Namespace.Class.Method(10, 12.5, true, "hello there")
 
 通过Lexer.Analysis得到词语列表：
 
-{% highlight csharp linenos %}
+```csharp
 List<Token> tokens = Lexer.Analysis(cmd);
-{% endhighlight %}
+```
 
 接下来，将词语列表传入语法分析器中，将得到三个输出数据：
 
