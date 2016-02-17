@@ -13,7 +13,7 @@ tags: [CPP, Graphics]
 
 ## 实现
 
-{% highlight cpp %}
+```cpp
 void CreateCylinder(const std::string &name, float topR, float bottomR, float height, int segH, int segV)
 {
     if (segH < 2 || segV < 3)
@@ -103,7 +103,7 @@ void CreateCylinder(const std::string &name, float topR, float bottomR, float he
     }
     indices.insert(indices.end(), { center, previousRing.back(), previousRing.front() });
 }
-{% endhighlight %}
+```
 
 ## 附录<span id="ref"></span>
 
