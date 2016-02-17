@@ -13,7 +13,7 @@ tags: [CPP, Graphics]
 
 ## 实现
 
-{% highlight cpp linenos %}
+{% highlight cpp %}
 void CreateCylinder(const std::string &name, float topR, float bottomR, float height, int segH, int segV)
 {
     if (segH < 2 || segV < 3)
