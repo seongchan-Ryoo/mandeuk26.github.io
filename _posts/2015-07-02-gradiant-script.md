@@ -10,7 +10,7 @@ tags: [Unity, CSharp]
 
 支持渐变方向选择，支持单独设置Alpha
 
-{% highlight csharp linenos=table %}
+```csharp
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -65,4 +65,4 @@ public class Gradiant : BaseVertexEffect
         }
     }
 }
-{% endhighlight %}
+```
