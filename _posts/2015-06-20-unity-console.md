@@ -8,9 +8,9 @@ tags: [Unity, CSharp]
 
 输入一段类似下面的命令：
 
-{% highlight csharp linenos %}
+```csharp
 Namespace.Class.Method(10, 12.5, true, "hello there")
-{% endhighlight %}
+```
 
 按下回车键两次。
 
@@ -36,22 +36,22 @@ List<Token> tokens = Lexer.Analysis(cmd);
 - 函数名称
 - 参数列表，支持 Int、Float、String、Bool 这四种参数类型
 
-{% highlight csharp linenos %}
+```csharp
 Parse(List<Token> tokens, out string str_namespace, out string str_func, out List<object> args)
 // I.Am.Namespace.AnyType
 // AnyFunction
 // object[] {1, "i'm a string", 18.8, false}
-{% endhighlight %}
+```
 
 得到以上数据，我们就可以通过C#的反射机制，来进行运行时静态函数的调用：
 
-{% highlight csharp linenos %}
+```csharp
 Assembly asb = Assembly.GetExecutingAssembly();
 // 得到类型
 Type tp = asb.GetType(str_namespace, true);
 // 调用该类型的函数
 object returnValue = tp.InvokeMember(str_func, BindingFlags.Static | BindingFlags.Public | BindingFlags.InvokeMethod, null, null, arg_list.ToArray());
-{% endhighlight %}
+```
 
 ## 附录
 
