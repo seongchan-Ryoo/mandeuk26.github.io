@@ -61,17 +61,17 @@ L对N的镜像R的计算：
 
 属于灯光的参数：
 
-{% highlight c linenos %}
+```c
 light
 {
 	color, 
 	shininess/power
 }
-{% endhighlight %}
+```
 
 属于材质的参数：
 
-{% highlight c linenos %}
+```c
 material 
 {
 	specular_color, 
@@ -82,16 +82,16 @@ material
 
 	shininess/power
 }
-{% endhighlight %}
+```
 
 我们需要重建的光照方程，使用Blinn-Phong光照模型：
 
-{% highlight c linenos %}
+```c
 color = ambient + shadow * attenuation * (
 	mat_diff * diff_intensity * light_color * N * L + 
 	mat_spec * spec_intensity * ((N * H)^n)^m
 )
-{% endhighlight %}
+```
 
 | Name        | Detail          | Name      | Detail         |
 | ----------- | --------------- | --------- | -------------- |
@@ -107,27 +107,27 @@ color = ambient + shadow * attenuation * (
 
 我们将其存储到Light Buffer中，用于后续渲染中对光照方程的重建：
 
-{% highlight c linenos %}
+```c
 light_buffer.rgb = light_color.rgb * N * L * attenuation
 light_buffer.a = (N * H)^n * N * L * attenuation
 N * L * attenuation
-{% endhighlight %}
+```
 
 若需要重建高光反射分量，则共需要两个Render Target。
 
 在这里，我们可以转换 N * L * attenuation 到 luminance <sup>[[3]](#ref)</sup>，这两个值非常接近：
 
-{% highlight c linenos %}
+```c
 luminance = N * L * attenuation 
 	= (0.2126 * R + 0.7152 * G + 0.0722 * B)
-{% endhighlight %}
+```
 
 这样我们就可以重建高光反射分量，并且仅需要一个Render Target：
 
-{% highlight c linenos %}
+```c
 (N * H)^n = light_buffer.a / luminance
 	= ((N * H)^n * N * L * attenuation) / (N * L * attenuation);
-{% endhighlight %}
+```
 
 
 ## 附录<span id="ref"></span>
