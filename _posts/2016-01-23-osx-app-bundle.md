@@ -12,7 +12,7 @@ tags: [CPP, Notes]
 
 ## 代码
 
-{% highlight cpp linenos %}
+{% highlight cpp %}
 #if defined(__APPLE__)
 #include <CoreFoundation/CoreFoundation.h>
 #endif
