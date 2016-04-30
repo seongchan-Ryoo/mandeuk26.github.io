@@ -7,6 +7,28 @@ title: Projects
   Hey there! This page lists some of my projects and contributions.
 </p>
 
+## FURY3D
+
+A mordern opengl based 3d graphic engine written in c++11
+
+Features:
+
+* Use modern opengl.
+
+* C++11 smart pointers made memory management easier.
+
+* Flexible signal message system. (use function pointers, so it won't accept lambdas, sry)
+
+* Support fbx model format, you can load static meshes, skinned meshes and lights directlly.
+
+* Easy rendering pipeline management through json serialization functionality.
+
+* Build-in light-pre pass rendering pipeling.
+
+* Intergates powerful gui library [ImGui](https://github.com/ocornut/imgui).
+
+Find out more on [GitHub](https://github.com/sindney/fury3d).
+
 ## Nest3D-CPP
 
 This is the cpp version of our simple 3d engine. 
