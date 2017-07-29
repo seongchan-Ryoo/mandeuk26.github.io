@@ -5,8 +5,8 @@ permalink:        pretty
 title:            Sindney
 tagline:          'Just another blog'
 description:      'Though i fly through the valley of death, i shall fear no evil, for i am at 80000 feet and climbing.'
-url:              https://sindney.github.io
-baseurl:          /
+url:              http://sindney.github.io
+baseurl:          http://sindney.github.io/
 
 author:
   name:           Sindney
