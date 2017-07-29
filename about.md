@@ -11,7 +11,7 @@ title: About
 
 Feel free to contact me: 
 
-* Mail: 346567691[at]qq.com
+* Mail: xinhou[at]tencent.com
 * QQ: 346567691
 
 Have a nice day!
