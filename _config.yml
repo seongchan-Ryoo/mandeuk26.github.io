@@ -1,9 +1,6 @@
 # Permalinks
 permalink:        pretty
 
-widgets:
-- tag
-
 # Setup
 title:            Sindney
 tagline:          'Just another blog'
