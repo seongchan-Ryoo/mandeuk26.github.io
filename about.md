@@ -8,6 +8,7 @@ title: About
 </p>
 
 Mainly engaged in graphics and mobile game play programming.
+
 Currentlly working at tencent inc.
 
 ## Contact
