@@ -5,6 +5,7 @@ title: About
 
 <p class="message">
   Hi, i'm sindney. A game developer from China :D
+  Currentlly working at tencent inc.
 </p>
 
 ## Contact
