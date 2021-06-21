@@ -1,15 +1,15 @@
 # Setup
-title:            'Mandeuk26'
+title:            '만득'
 tagline:          'Blog'
-description:      'Happy'
+description:      '코딩 공부 정리용'
 url:              https://mandeuk26.github.io/
 baseurl:          ''
 paginate:         5
 
 # About and contact
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Mandeuk26'
+  url:            https://github.com/mandeuk26/
 
 # Gems
 plugins:
