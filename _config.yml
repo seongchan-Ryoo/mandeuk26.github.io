@@ -3,7 +3,7 @@ title:            '만득'
 tagline:          'Blog'
 description:      '코딩 공부 정리용'
 url:              https://mandeuk26.github.io/
-baseurl:          ''
+baseurl:          https://mandeuk26.github.io/
 paginate:         5
 
 # About and contact
